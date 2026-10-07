@@ -2,6 +2,10 @@
 
 1학년부터 3학년 2학기까지 학교생활과 태도의 변화를 소개하는 정적 홈페이지입니다. 프로젝트 실적 나열 대신 학기별 배움, 협업, 성찰과 취미를 중심으로 구성했습니다.
 
+홈페이지: https://ohan9i.github.io/yohan-portfolio/
+
+GitHub 저장소: https://github.com/ohan9i/yohan-portfolio
+
 ## 바로 보기와 수정
 
 - `dist/index.html`을 브라우저에서 열면 바로 볼 수 있습니다.
@@ -22,4 +26,17 @@
 
 ## Git
 
-이 폴더의 독립 Git 저장소에 소스를 기록하고 Sites 원격 저장소로 배포합니다. 수정 후 `git add dist README.md`, `git commit -m "Update university life story"`로 기록할 수 있습니다. GitHub 저장소 생성과 GitHub Pages 배포는 하지 않았습니다. 웹사이트는 기본적으로 소유자 전용 비공개입니다.
+`main` 브랜치에는 전체 소스가 있고, `gh-pages` 브랜치에는 `dist` 폴더의 홈페이지 파일이 있습니다. GitHub Pages는 `gh-pages`의 루트(`/`)를 공개합니다.
+
+수정 후 PowerShell에서 이 폴더로 이동하여 실행합니다.
+
+```powershell
+git add dist README.md
+git commit -m "Update university life story"
+git push origin main
+git subtree push --prefix=dist origin gh-pages
+```
+
+마지막 명령은 `dist` 폴더만 배포 브랜치에 올립니다. GitHub의 Pages 배포가 완료되면 홈페이지에 반영됩니다. `.nojekyll`은 HTML과 CSS를 그대로 배포하도록 하는 파일입니다.
+
+이 저장소와 홈페이지는 공개입니다. `.openai/hosting.json`은 이전 Sites 배포를 위한 설정이며 GitHub Pages에서는 사용하지 않습니다.
